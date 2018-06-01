@@ -36,14 +36,6 @@ class Book < ApplicationRecord
     end
   end
 
-  # メソッドを使って以下のようにも
-  # before_validation :add_lovely_to_cat
-  #   def add_lovely_to_cat
-  #     book.name = book.name.gsub(/Cat/) do |matched|
-  #     "lovely #{matched}"
-  #   end
-  # end
-
   # Write log destroyed_data
   after_destroy :if => :high_price? do |book|
     Rails.logger.warn "Book with high price is deleted: #{book.attributes.inspect}"

@@ -1,23 +1,15 @@
 class BooksController < ApplicationController
-  # アクションコールバックの設定
   before_action :set_book, :detect_mobile_variant, only: [:show, :edit, :update, :destroy]
-  # Another method
-  # before_action do
-  #   redirect_to access_denied_path if params[:token].blank?
-  # end
 
-  # public のメソッドが呼び出される
   def show
     @book = Book.find(params[:id])
-    # リクエストを受け付けるファイルタイプ
     respond_to do |format|
       format.html
       format.csv
       format.json
     end
 
-    # # app/views/<Model>/<Action>.<respond>.erb を基にビューの生成?
-    # render :show
+    render :show
   end
 
   private def set_book

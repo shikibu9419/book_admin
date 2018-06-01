@@ -21,6 +21,6 @@ module BookAdmin
     # # autoloadの対象設定
     # config.autoload_paths += %W(#{config.root}/lib/autoload)
 
-    config.assets.path << Rails.root.join("components")
+    # config.assets.path << Rails.root.join("components")
   end
 end
